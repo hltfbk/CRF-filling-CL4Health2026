@@ -14,24 +14,23 @@ Use `scoring.py` to evaluate your submission locally and produce `scores.json`.
 
 ### What it expects
 - Input predictions: `your_submission_data/your_submission.jsonl`
-- Reference data: `development_data/mock_data_dev_codabench_REFERENCE.jsonl`
-- Output scores: `your_sumbmission_scores/scores.json`
+- Language: `en` or `it`
 
 ### Run
 ```bash
 python3 scoring.py \
-  --pred your_submission_data/your_submission.jsonl \
-  --ref development_data/dev_gt.jsonl \
-  --out your_sumbmission_scores/scores.json
+  --submission_path your_submission_data/your_submission.jsonl \
+  --language en
 ```
 
 ### Output
-- Writes a JSON file with the metrics to `your_sumbmission_scores/scores.json`.
+- Writes a JSON file with the metrics to `your_sumbmission_scores/scores.json` (created automatically).
 - Prints a short summary to the terminal.
 
 ### Tips
-- Make sure your `your_submission.jsonl` follows the "Expected JSONL Structure" below.
-- If you use a different folder layout, pass the appropriate `--pred`, `--ref`, and `--out` paths.
+- Make sure your `your_submission.jsonl` follows the expected submission schema for this task.
+- The reference file for development runs is fixed to `development_data/dev_gt.jsonl` inside the script.
+- Use `--language it` for Italian submissions; `en` for English.
 
 
 ## Expected JSONL Structure
