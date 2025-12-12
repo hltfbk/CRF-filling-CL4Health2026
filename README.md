@@ -3,10 +3,18 @@
 This workspace includes a tiny utility to validate a result-only submission JSONL and create a clean ZIP ready to upload to Codabench.
 
 ## Index
-- [Local Scoring](#local-scoring)
-- [Expected JSONL Structure](#expected-jsonl-structure)
-- [Validator Script](#validator-script)
-- [Notes](#notes)
+- [Codabench Submission Helper](#codabench-submission-helper)
+  - [Index](#index)
+  - [Local Scoring](#local-scoring)
+    - [What it expects](#what-it-expects)
+    - [Run](#run)
+    - [Output](#output)
+    - [Tips](#tips)
+  - [Expected JSONL Structure](#expected-jsonl-structure)
+  - [Validator Script](#validator-script)
+    - [Usage](#usage)
+    - [Output](#output-1)
+  - [Notes](#notes)
 
 
 ## Local Scoring
@@ -51,7 +59,7 @@ Example (single line, truncated):
 
 ### Usage
 ```bash
-python3 check_submission_format.py /Users/pietroferrazzi/Desktop/codebench/submission/mock_data_dev_codabench.jsonl --out /Users/pietroferrazzi/Desktop/codebench/submission_validated.zip
+python3 check_submission_format.py your_submission_data/dev_submission_all_correct.jsonl --out your_submission_data/submission_validated.zip
 ```
 
 - If validation passes, it prints the output path and exits with code 0.

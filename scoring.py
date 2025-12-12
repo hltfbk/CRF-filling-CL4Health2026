@@ -27,6 +27,9 @@ class Scorer:
 
     def calculate_score(self, reference, submission):
         scores = []
+        self.TP = 0
+        self.FP = 0
+        self.FN = 0        
         for ref_one_patient, sub_one_patient in zip(reference, submission):
             sub_one_patient_id, lang = sub_one_patient["document_id"].split("_", 1)
             if ref_one_patient["document_id"] != sub_one_patient_id:
@@ -45,6 +48,7 @@ class Scorer:
 
         if not scores:
             return 0.0
+        print(f"TP: {self.TP}, FP: {self.FP}, FN: {self.FN}")   
 
         return sum(scores) / len(scores)
 
@@ -55,17 +59,29 @@ class Scorer:
         y_true = [item["ground_truth"] for item in reference_one_patient["annotations"]]
         y_pred = [item["prediction"] for item in submission_one_patient["predictions"]]
 
+
+        
+        for i, t, p in zip(range(len(y_true)), y_true, y_pred):
+            if t != self.not_available_string or p != self.not_available_string:
+                if t == p:
+                    self.TP += 1
+                elif t == self.not_available_string and p != self.not_available_string:
+                    self.FP += 1
+                elif t != p and p == self.not_available_string:
+                    self.FN += 1
+                # print(f'item:{reference_one_patient["annotations"][i]["item"]}\n pred: {p}\n true: {t}\n{"DIFFERENT" if t != p else ""}\n')
         f1 = f1_score(
             y_true,
             y_pred,
             average="macro",
-            # zero_division=
+            # zero_division
         )
         return f1
 
 
 def main(your_submission_path: str, language: str, test_or_dev: str) -> None:
     print("\n=== Scoring program starting ===")
+    output_dir = "your_sumbmission_scores"
 
     if test_or_dev == "test":
         ref_path = 'development_data/test_gt.jsonl'
@@ -95,8 +111,6 @@ def main(your_submission_path: str, language: str, test_or_dev: str) -> None:
     score = scorer.calculate_score(reference, submission)
 
     print(f"Final macro-F1 = {score}")
-
-    output_dir = "your_sumbmission_scores"
 
     os.makedirs(output_dir, exist_ok=True)
 

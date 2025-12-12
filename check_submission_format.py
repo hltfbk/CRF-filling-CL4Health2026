@@ -104,7 +104,7 @@ def main() -> int:
     base = os.path.basename(jsonl_path)
     if base != REQUIRED_FILE_NAME:
         valid_name = False
-        print(f"Warning: input filename is '{base}'. Codabench expects '{REQUIRED_FILE_NAME}'.\n Converting it for submission.", file=sys.stderr)
+        print(f"Warning: input filename is '{base}'. Codabench expects '{REQUIRED_FILE_NAME}'. Converting it for submission.\n", file=sys.stderr)
 
     try:
         records = read_jsonl(jsonl_path)
