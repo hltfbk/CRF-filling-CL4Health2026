@@ -22,6 +22,7 @@ This workspace includes a tiny utility to validate a result-only submission JSON
 
 ## Local Scoring
 Use `scoring.py` to evaluate your submission locally and produce `scores.json`.
+An example of the submission file participants must create is presented at `your_submission_data/your_submission.jsonl`
 
 ### What it expects
 - Input predictions: `your_submission_data/your_submission.jsonl`
