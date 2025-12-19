@@ -5,7 +5,8 @@
 
 This workspace includes a tiny utility to validate a result-only submission JSONL and create a clean ZIP ready to upload to Codabench.
 
-1. Calculate the F1 of your 
+1. Calculate the F1 for your submission locally
+2. Create the ZIP file for automatic scoring on the [Codabench leaderboard](https://www.codabench.org/competitions/11984/#/results-tab) 
 
 ## Index
 - [Expected JSONL Structure](#expected-jsonl-structure)
@@ -20,9 +21,24 @@ This workspace includes a tiny utility to validate a result-only submission JSON
 - [Upload](#upload)
 
 
+## Expected JSONL Structure
+An example of the submission file participants must create is presented at `your_submission_data/example_submission_italian.jsonl`.
+
+The submission file must have the following structure:
+- One JSON object per line (JSONL)
+- Each record has:
+  - `id`: non-empty string (e.g., patient ID)
+  - `predictions`: non-empty list of objects, each with:
+    - `item`: non-empty string
+    - `prediction`: string
+
+Example (single line, truncated):
+```json
+{"id":"1234","predictions":[{"item":"Exam: haemoglobin ","prediction":" 8g/dl. "}, ... ]}
+```
+
 ## Local Scoring
-Use `scoring.py` to evaluate your submission locally and produce `scores.json`.
-An example of the submission file participants must create is presented at `your_submission_data/example_submission_italian.jsonl`
+Use `scoring.py` to evaluate your submission locally.
 
 ### What it expects
 - Input predictions: `your_submission_data/example_submission_italian.jsonl`
@@ -45,18 +61,6 @@ python3 scoring.py \
 - Use `--language it` for Italian submissions; `en` for English.
 
 
-## Expected JSONL Structure
-- One JSON object per line (JSONL)
-- Each record has:
-  - `id`: non-empty string (e.g., patient ID)
-  - `predictions`: non-empty list of objects, each with:
-    - `item`: non-empty string
-    - `prediction`: string
-
-Example (single line, truncated):
-```json
-{"id":"1234","predictions":[{"item":"Exam: haemoglobin ","prediction":" 8g/dl. "}, ... ]}
-```
 
 ## Validator Script
 `check_submission_format.py` validates the structure and writes a ZIP with the file at the archive root as `mock_data_dev_codabench.jsonl`.
