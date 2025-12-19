@@ -78,4 +78,4 @@ submission_validated.zip
 ```
 
 ## Notes
-- Upload the resulting ZIP to **XXXXXX [ADD LINK].**
+- Upload the resulting ZIP to [Codabench](https://www.codabench.org/competitions/11984/#/participate-tab)
