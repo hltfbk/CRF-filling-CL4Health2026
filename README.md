@@ -9,15 +9,15 @@ This workspace includes a tiny utility to validate a result-only submission JSON
 
 ## Index
 - [Expected JSONL Structure](#expected-jsonl-structure)
-  - [Local Scoring](#local-scoring)
-    - [What it expects](#what-it-expects)
-    - [Run](#run)
-    - [Output](#output)
-    - [Tips](#tips)
- - [Validator Script](#validator-script)
-   - [Usage](#usage)
-   - [Output](#output-1)
- - [Notes](#notes)
+- [Local Scoring](#local-scoring)
+  - [What it expects](#what-it-expects)
+  - [Run](#run)
+  - [Output](#output)
+  - [Tips](#tips)
+- [Validator Script](#validator-script)
+  - [Usage](#usage)
+  - [Output](#output-1)
+- [Upload](#upload)
 
 
 ## Local Scoring
