@@ -27,13 +27,13 @@ Use `scoring.py` to evaluate your submission locally and produce `scores.json`.
 An example of the submission file participants must create is presented at `your_submission_data/example_submission_italian.jsonl`
 
 ### What it expects
-- Input predictions: `your_submission_data/your_submission.jsonl`
+- Input predictions: `your_submission_data/example_submission_italian.jsonl`
 - Language: `en` or `it`
 
 ### Run
 ```bash
 python3 scoring.py \
-  --submission_path your_submission_data/your_submission.jsonl \
+  --submission_path your_submission_data/example_submission_italian.jsonl \
   --language it
 ```
 
@@ -42,7 +42,7 @@ python3 scoring.py \
 - Prints a short summary to the terminal.
 
 ### Tips
-- Make sure your `your_submission.jsonl` follows the expected submission schema for this task.
+- Make sure your `example_submission_italian.jsonl` follows the expected submission schema for this task.
 - The reference file for development runs is fixed to `development_data/dev_gt.jsonl` inside the script.
 - Use `--language it` for Italian submissions; `en` for English.
 
