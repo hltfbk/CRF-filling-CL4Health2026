@@ -79,5 +79,5 @@ submission_validated.zip
 └── mock_data_dev_codabench.jsonl
 ```
 
-## Notes
+### Final Upload
 - Upload the resulting ZIP to [Codabench](https://www.codabench.org/competitions/11984/#/participate-tab)
