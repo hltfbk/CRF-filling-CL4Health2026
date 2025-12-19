@@ -5,6 +5,8 @@
 
 This workspace includes a tiny utility to validate a result-only submission JSONL and create a clean ZIP ready to upload to Codabench.
 
+1. Calculate the F1 of your 
+
 ## Index
 - [Codabench Submission Helper](#codabench-submission-helper)
   - [Index](#index)
@@ -22,7 +24,7 @@ This workspace includes a tiny utility to validate a result-only submission JSON
 
 ## Local Scoring
 Use `scoring.py` to evaluate your submission locally and produce `scores.json`.
-An example of the submission file participants must create is presented at `your_submission_data/your_submission.jsonl`
+An example of the submission file participants must create is presented at `your_submission_data/example_submission_italian.jsonl`
 
 ### What it expects
 - Input predictions: `your_submission_data/your_submission.jsonl`
@@ -32,7 +34,7 @@ An example of the submission file participants must create is presented at `your
 ```bash
 python3 scoring.py \
   --submission_path your_submission_data/your_submission.jsonl \
-  --language en
+  --language it
 ```
 
 ### Output
